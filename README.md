@@ -87,3 +87,5 @@ aws ssm put-parameter --name /$account/$region/vpc/cidr --value $cidr
 
 - Rename sandbox dir to devaccone as per the account_customizations_name in aft-account-request
 - Any account specific customization to devaccone account will go through here
+- Any change to account customizations will not trigger the Code Pipeline
+- Goto Code Pipeline -> select relevant accounts customizations-pipeline -> Release Change
