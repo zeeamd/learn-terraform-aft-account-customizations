@@ -26,3 +26,9 @@ resource "aws_iam_policy" "sqs-list" {
     name   = "custom-sqs-list-test-v0"
     policy = file("files/policies/sqs-list.json")
 }
+
+resource "aws_ssoadmin_permission_set_inline_policy" "cipa1" {
+  inline_policy      = file("files/policies/sqs-list.json")
+  instance_arn       = aws_ssoadmin_permission_set.cps1.instance_arn
+  permission_set_arn = aws_ssoadmin_permission_set.cps1.arn
+}
