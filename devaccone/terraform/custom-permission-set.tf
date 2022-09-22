@@ -28,7 +28,7 @@ resource "aws_iam_policy" "sqs-list" {
 #}
 
 resource "aws_ssoadmin_managed_policy_attachment" "cpa1" {
-  for_each           = toset(["arn:aws:iam::aws:policy/ReadOnlyAccess",aws_iam_policy.sqs-list.arn])
+  for_each           = toset(["arn:aws:iam::aws:policy/ReadOnlyAccess"])
   instance_arn       = tolist(data.aws_ssoadmin_instances.cssoai.arns)[0]
   managed_policy_arn = each.key
   permission_set_arn = aws_ssoadmin_permission_set.cps1.arn
