@@ -35,13 +35,8 @@ resource "aws_ssoadmin_managed_policy_attachment" "cpa1" {
 }
 
 resource "aws_ssoadmin_permission_set_inline_policy" "cipa1" {
-  inline_policy      = file("files/policies/sqs-list.json")
+  for_each           = toset(var.iam_policies)
+  inline_policy      = file("${each.key}")
   instance_arn       = aws_ssoadmin_permission_set.cps1.instance_arn
-  permission_set_arn = aws_ssoadmin_permission_set.cps1.arn
-}
-
-resource "aws_ssoadmin_managed_policy_attachment" "cpa2" {
-  managed_policy_arn = "arn:aws:iam::052080266972:policy/custom-sqs-list-test-v0"
-  instance_arn       = tolist(data.aws_ssoadmin_instances.cssoai.arns)[0]
   permission_set_arn = aws_ssoadmin_permission_set.cps1.arn
 }
