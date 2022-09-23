@@ -28,7 +28,7 @@ resource "aws_iam_policy" "sqs-list" {
 #}
 
 resource "aws_ssoadmin_managed_policy_attachment" "cpa1" {
-  for_each           = toset(["arn:aws:iam::aws:policy/ReadOnlyAccess","arn:aws:iam::052080266972:policy/custom-sqs-list-test-v0"])
+  for_each           = toset(["arn:aws:iam::aws:policy/ReadOnlyAccess"])
   instance_arn       = tolist(data.aws_ssoadmin_instances.cssoai.arns)[0]
   managed_policy_arn = each.key
   permission_set_arn = aws_ssoadmin_permission_set.cps1.arn
@@ -37,5 +37,11 @@ resource "aws_ssoadmin_managed_policy_attachment" "cpa1" {
 resource "aws_ssoadmin_permission_set_inline_policy" "cipa1" {
   inline_policy      = file("files/policies/sqs-list.json")
   instance_arn       = aws_ssoadmin_permission_set.cps1.instance_arn
+  permission_set_arn = aws_ssoadmin_permission_set.cps1.arn
+}
+
+resource "aws_ssoadmin_customer_managed_policy_attachment" "example" {
+  customer_managed_policy_name = "custom-sqs-list-test-v0"
+  instance_arn = aws_ssoadmin_permission_set.cps1.instance_arn
   permission_set_arn = aws_ssoadmin_permission_set.cps1.arn
 }
