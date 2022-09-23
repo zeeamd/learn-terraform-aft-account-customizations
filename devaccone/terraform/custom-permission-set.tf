@@ -40,8 +40,8 @@ resource "aws_ssoadmin_permission_set_inline_policy" "cipa1" {
   permission_set_arn = aws_ssoadmin_permission_set.cps1.arn
 }
 
-resource "aws_ssoadmin_customer_managed_policy_attachment" "example" {
-  customer_managed_policy_name = "custom-sqs-list-test-v0"
-  instance_arn = aws_ssoadmin_permission_set.cps1.instance_arn
+resource "aws_ssoadmin_managed_policy_attachment" "cpa2" {
+  managed_policy_arn = "arn:aws:iam::052080266972:policy/custom-sqs-list-test-v0"
+  instance_arn       = tolist(data.aws_ssoadmin_instances.cssoai.arns)[0]
   permission_set_arn = aws_ssoadmin_permission_set.cps1.arn
 }
