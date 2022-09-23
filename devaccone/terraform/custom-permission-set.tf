@@ -39,3 +39,9 @@ resource "aws_ssoadmin_permission_set_inline_policy" "cipa1" {
   instance_arn       = aws_ssoadmin_permission_set.cps1.instance_arn
   permission_set_arn = aws_ssoadmin_permission_set.cps1.arn
 }
+
+resource "aws_ssoadmin_permission_set_inline_policy" "cipa2" {
+  inline_policy      = file("files/policies/sts-assume-role.tf")
+  instance_arn       = aws_ssoadmin_permission_set.cps1.instance_arn
+  permission_set_arn = aws_ssoadmin_permission_set.cps1.arn
+}
