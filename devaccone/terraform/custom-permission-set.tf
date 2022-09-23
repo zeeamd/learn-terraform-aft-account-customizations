@@ -35,8 +35,7 @@ resource "aws_ssoadmin_managed_policy_attachment" "cpa1" {
 }
 
 resource "aws_ssoadmin_permission_set_inline_policy" "cipa1" {
-  for_each           = toset(var.iam_policies)
-  inline_policy      = file("${each.key}")
+  inline_policy      = file("files/policies/sts-assume-role.json")
   instance_arn       = aws_ssoadmin_permission_set.cps1.instance_arn
   permission_set_arn = aws_ssoadmin_permission_set.cps1.arn
 }
