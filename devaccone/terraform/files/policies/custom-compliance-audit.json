@@ -1,0 +1,66 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Action": [
+        "config:DeleteAggregationAuthorization",
+        "config:DeleteConfigRule",
+        "config:DeleteConfigurationAggregator",
+        "config:DeleteConfigurationRecorder",
+        "config:DeleteConformancePack",
+        "config:DeleteDeliveryChannel",
+        "config:DeleteEvaluationResults",
+        "config:DeleteOrganizationConfigRule",
+        "config:DeleteOrganizationConformancePack",
+        "config:DeletePendingAggregationRequest",
+        "config:DeleteRemediationConfiguration",
+        "config:DeleteRemediationExceptions",
+        "config:DeleteResourceConfig",
+        "config:DeleteRetentionConfiguration",
+        "config:DeleteStoredQuery"
+      ],
+      "Effect": "Deny",
+      "Resource": "*"
+    },
+    {
+      "Action": [
+        "cloudtrail:DeleteEventDataStore",
+        "cloudtrail:DeleteServiceLinkedChannel",
+        "cloudtrail:DeleteTrail"
+      ],
+      "Effect": "Deny",
+      "Resource": "*"
+    },
+    {
+      "Action": [
+        "lambda:DeleteAlias",
+        "lambda:DeleteCodeSigningConfig",
+        "lambda:DeleteEventSourceMapping",
+        "lambda:DeleteFunction",
+        "lambda:DeleteFunctionCodeSigningConfig",
+        "lambda:DeleteFunctionConcurrency",
+        "lambda:DeleteFunctionEventInvokeConfig",
+        "lambda:DeleteFunctionUrlConfig",
+        "lambda:DeleteLayerVersion",
+        "lambda:DeleteProvisionedConcurrencyConfig"
+      ],
+      "Effect": "Deny",
+      "Resource": "*"
+    },
+    {
+      "Action": [
+        "logs:DeleteDestination",
+        "logs:DeleteLogDelivery",
+        "logs:DeleteLogGroup",
+        "logs:DeleteLogStream",
+        "logs:DeleteMetricFilter",
+        "logs:DeleteQueryDefinition",
+        "logs:DeleteResourcePolicy",
+        "logs:DeleteRetentionPolicy",
+        "logs:DeleteSubscriptionFilter"
+      ],
+      "Effect": "Deny",
+      "Resource": "*"
+    }
+  ]
+}
