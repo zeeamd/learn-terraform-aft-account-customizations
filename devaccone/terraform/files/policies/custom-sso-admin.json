@@ -1,0 +1,21 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Action": [
+        "sso:DeleteAccountAssignment",
+        "sso:DeleteApplicationInstance",
+        "sso:DeleteApplicationInstanceCertificate",
+        "sso:DeleteInlinePolicyFromPermissionSet",
+        "sso:DeleteInstanceAccessControlAttributeConfiguration",
+        "sso:DeleteManagedApplicationInstance",
+        "sso:DeletePermissionSet",
+        "sso:DeletePermissionsBoundaryFromPermissionSet",
+        "sso:DeletePermissionsPolicy",
+        "sso:DeleteProfile"
+      ],
+      "Effect": "Deny",
+      "Resource": "*"
+    }
+  ]
+}
