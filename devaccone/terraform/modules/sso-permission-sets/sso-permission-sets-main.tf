@@ -11,9 +11,6 @@ output "identity_store_id" {
 resource "aws_ssoadmin_permission_set" "ctssops" {
   name = var.aws_ssoadmin_permission_set_name
   instance_arn = tolist(data.aws_ssoadmin_instances.ctssoai.arns)[0]
-  tags = merge(module.tags.map,{
-   Name = var.aws_ssoadmin_permission_set_name
-  })
 }
 
 resource "aws_ssoadmin_managed_policy_attachment" "ctssomp" {
