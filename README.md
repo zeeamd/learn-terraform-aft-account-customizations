@@ -92,3 +92,4 @@ aws ssm put-parameter --name /$account/$region/vpc/cidr --value $cidr
 - Goto Code Pipeline -> select relevant accounts customizations-pipeline -> Release Change
 
 - As per best practise delegate AWS SSO management to a child account (in this case devaccone)
+- To disassociate a permission set from an account -> goto AWS SSO -> Accounts -> Relevant Account -> Permission Set -> Remove
