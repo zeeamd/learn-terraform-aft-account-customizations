@@ -93,3 +93,11 @@ aws ssm put-parameter --name /$account/$region/vpc/cidr --value $cidr
 
 - As per best practise delegate AWS SSO management to a child account (in this case devaccone)
 - To disassociate a permission set from an account -> goto AWS SSO -> Accounts -> Relevant Account -> Permission Set -> Remove
+
+- If a new permission set is to be provisioned use the variables file
+  e.g no policies needed
+  aws_ssoadmin_managed_policy_attachments_arn = []
+  aws_ssoadmin_permission_set_inline_policy_json = ""
+  e.g is policies needed
+  aws_ssoadmin_managed_policy_attachments_arn = ["<managed policy arn>,<more if needed>"]
+  aws_ssoadmin_permission_set_inline_policy_json = "<json file name>"
