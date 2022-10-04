@@ -5,7 +5,7 @@ module "sso_permission_sets" {
   aws_ssoadmin_permission_set_name = each.value["aws_ssoadmin_permission_set_name"]
   aws_ssoadmin_managed_policy_attachments_arn = each.value["aws_ssoadmin_managed_policy_attachments_arn"]
   aws_ssoadmin_permission_set_session_duration = each.value["aws_ssoadmin_permission_set_session_duration"]
-  aws_ssoadmin_permission_set_inline_policy_json = each.value["aws_ssoadmin_permission_set_inline_policy_json"] == "" ? inline_policy = 0 : each.value["aws_ssoadmin_permission_set_inline_policy_json"]
+  aws_ssoadmin_permission_set_inline_policy_json = each.value["aws_ssoadmin_permission_set_inline_policy_json"]
   tags = merge(module.tags.map,{
    Name = each.value["aws_ssoadmin_permission_set_name"]
   })
