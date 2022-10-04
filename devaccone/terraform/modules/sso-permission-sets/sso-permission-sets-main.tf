@@ -23,7 +23,7 @@ resource "aws_ssoadmin_managed_policy_attachment" "ctssomp" {
 }
 
 resource "aws_ssoadmin_permission_set_inline_policy" "ctssoip" {
-  count              = length(chomp(var.aws_ssoadmin_permission_set_inline_policy_json)) > 0 ? 1 : 0
+  for_each           = length(chomp(var.aws_ssoadmin_permission_set_inline_policy_json)) > 0 ? 1 : 0
   inline_policy      = file("files/policies/${var.aws_ssoadmin_permission_set_inline_policy_json}")
   instance_arn       = aws_ssoadmin_permission_set.ctssops.instance_arn
   permission_set_arn = aws_ssoadmin_permission_set.ctssops.arn
