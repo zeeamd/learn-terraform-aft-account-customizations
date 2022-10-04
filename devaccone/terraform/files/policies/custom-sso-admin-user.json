@@ -16,6 +16,13 @@
       ],
       "Effect": "Deny",
       "Resource": "*"
+    },
+    {
+      "Action": [
+        "organizations:EnableAllFeatures"
+      ],
+      "Effect": "Allow",
+      "Resource": "*"
     }
   ]
 }
