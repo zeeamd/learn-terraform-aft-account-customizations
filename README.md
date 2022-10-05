@@ -101,3 +101,7 @@ aws ssm put-parameter --name /$account/$region/vpc/cidr --value $cidr
   e.g is policies needed
   aws_ssoadmin_managed_policy_attachments_arn = ["<managed policy arn>,<more if needed>"]
   aws_ssoadmin_permission_set_inline_policy_json = "<json file name>"
+
+- To adjust the session time of permission set
+  e.g. if you want to use default
+  aws_ssoadmin_permission_set_session_duration = ""
