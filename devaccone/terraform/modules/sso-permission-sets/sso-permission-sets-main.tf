@@ -11,7 +11,7 @@ output "identity_store_id" {
 resource "aws_ssoadmin_permission_set" "ctssops" {
   name = var.aws_ssoadmin_permission_set_name
   instance_arn = tolist(data.aws_ssoadmin_instances.ctssoai.arns)[0]
-  session_duration = var.aws_ssoadmin_permission_set_session_duration
+  session_duration = length(var.aws_ssoadmin_permission_set_session_duration) < 4 ? "PT2H" : var.aws_ssoadmin_permission_set_session_duration
   tags = var.tags
 }
 
