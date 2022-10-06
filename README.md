@@ -105,3 +105,8 @@ aws ssm put-parameter --name /$account/$region/vpc/cidr --value $cidr
 - To adjust the session time of permission set
   e.g. if you want to use default
   aws_ssoadmin_permission_set_session_duration = ""
+
+- To download tfsec
+  wget 'https://github.com/aquasecurity/tfsec/releases/download/v1.28.0/tfsec_1.28.0_linux_amd64.tar.gz'
+  This is a static security scanner for tf code
+  tfsec . 
