@@ -1,0 +1,98 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Action": [
+        "codepipeline:Get*",
+        "codepipeline:List*",
+        "codepipeline:RetryStageExecution",
+        "codepipeline:StartPipelineExecution",
+        "codepipeline:StopPipelineExecution"
+      ],
+      "Effect": "Allow",
+      "Resource": "*"
+    },
+    {
+      "Action": [
+        "codebuild:DescribeCodeCoverages",
+        "codebuild:DescribeTestCases",
+        "codebuild:GetReportGroupTrend",
+        "codebuild:GetResourcePolicy",
+        "codebuild:List*",
+        "codebuild:RetryBuild",
+        "codebuild:RetryBuildBatch",
+        "codebuild:StartBuild",
+        "codebuild:StartBuildBatch",
+        "codebuild:StopBuild",
+        "codebuild:StopBuildBatch"
+      ],
+      "Effect": "Allow",
+      "Resource": "*"
+    },
+    {
+      "Action": [
+        "dynamodb:Describe*",
+        "dynamodb:Get*",
+        "dynamodb:List*",
+        "dynamodb:Query",
+        "dynamodb:Scan"
+      ],
+      "Effect": "Allow",
+      "Resource": "*"
+    },
+    {
+      "Action": [
+        "lambda:Get*",
+        "lambda:InvokeAsync",
+        "lambda:InvokeFunction",
+        "lambda:InvokeFunctionUrl",
+        "lambda:List*"
+      ],
+      "Effect": "Allow",
+      "Resource": "*"
+    },
+    {
+      "Action": [
+        "states:Describe*",
+        "states:Get*",
+        "states:List*",
+        "states:SendTaskFailure",
+        "states:SendTaskHeartbeat",
+        "states:SendTaskSuccess",
+        "states:StartExecution",
+        "states:StartSyncExecution",
+        "states:StopExecution"
+      ],
+      "Effect": "Allow",
+      "Resource": "*"
+    },
+    {
+      "Action": [
+        "logs:Describe*",
+        "logs:FilterLogEvents",
+        "logs:Get*",
+        "logs:List*"
+      ],
+      "Effect": "Allow",
+      "Resource": "*"
+    },
+    {
+      "Action": [
+        "sns:Get*",
+        "sns:List*"
+      ],
+      "Effect": "Allow",
+      "Resource": "*"
+    },
+    {
+      "Action": [
+        "sqs:Get*",
+        "sqs:List*",
+        "sqs:ReceiveMessage",
+        "sqs:SendMessage"
+      ],
+      "Effect": "Allow",
+      "Resource": "*"
+    }
+  ]
+}

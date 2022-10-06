@@ -12,5 +12,11 @@ variable "custom-sso-admin-permission-sets" {
   aws_ssoadmin_permission_set_inline_policy_json = "custom-compliance-audit.json"
   aws_ssoadmin_permission_set_session_duration = ""
   }  
+  ps3 = {
+  aws_ssoadmin_permission_set_name = "ct-aft-ps"
+  aws_ssoadmin_managed_policy_attachments_arn = []
+  aws_ssoadmin_permission_set_inline_policy_json = "custom-aft.json"
+  aws_ssoadmin_permission_set_session_duration = ""
+  }  
  }
 }
