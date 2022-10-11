@@ -5,7 +5,5 @@ resource "aws_ec2_transit_gateway" "tgw" {
   auto_accept_shared_attachments = var.auto_accept_shared_attachments
   vpn_ecmp_support = var.vpn_ecmp_support
   dns_support = var.dns_support
-  tags = merge(module.tags.map,{
-               Name = var.name
-               })
+  tags = var.tags
 }
