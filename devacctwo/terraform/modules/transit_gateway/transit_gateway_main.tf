@@ -1,5 +1,4 @@
-module "tgw" {
-  source = "./modules/transit_gateway"
+resource "aws_ec2_transit_gateway" "tgw" {
   amazon_side_asn = var.amazon_side_asn
   default_route_table_association = var.default_route_table_association
   default_route_table_propagation = var.default_route_table_propagation
