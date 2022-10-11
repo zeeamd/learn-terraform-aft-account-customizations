@@ -1,7 +1,7 @@
 #tags module
 module "tags" {
   source     = "./modules/tags"
-  owner      = "AFT"
+  owner      = "CT2"
   automation = "terraform"
   other      = {}
 }
