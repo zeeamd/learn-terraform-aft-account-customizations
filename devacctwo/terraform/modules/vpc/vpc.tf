@@ -18,3 +18,11 @@ resource "aws_subnet" "public_subnet" {
                Name = "${var.vpc_name}-public-${count.index}"
                })
 }
+
+data "aws_subnet_ids" "selected" {
+  vpc_id = aws_vpc.vpc.id
+}
+
+output "thissubnetids" {
+  value = data.aws_subnet_ids.selected.ids
+}
