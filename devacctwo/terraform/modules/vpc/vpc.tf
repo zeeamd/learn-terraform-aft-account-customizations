@@ -19,10 +19,10 @@ resource "aws_subnet" "public_subnet" {
                })
 }
 
-data "aws_subnet_ids" "selected" {
-  vpc_id = aws_vpc.vpc.id
-}
-
-output "thissubnetids" {
-  value = data.aws_subnet_ids.selected.ids
-}
+#data "aws_subnet_ids" "selected" {
+#  vpc_id = aws_vpc.vpc.id
+#}
+#
+#output "thissubnetids" {
+#  value = data.aws_subnet_ids.selected.ids
+#}
