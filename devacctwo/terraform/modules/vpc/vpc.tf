@@ -6,6 +6,13 @@ resource "aws_vpc" "vpc" {
   tags = var.tags
 }
 
-data "aws_availability_zones" "available" {
-  state = "available"
+resource "aws_subnet" "public_subnet" {
+  count = 2
+  vpc_id = aws_vpc.vpc.id
+  cidr_block = var.subnet_cidr
+  availability_zone = "${data.aws_availability_zones.available.names[count.index]}"
+  map_public_ip_on_launch = true
+  tags {
+    Name = "PublicSubnet"
+  }
 }
