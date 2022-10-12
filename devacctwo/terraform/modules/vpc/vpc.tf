@@ -3,7 +3,9 @@ resource "aws_vpc" "vpc" {
   instance_tenancy = var.instance_tenancy
   enable_dns_support = var.enable_dns_support
   enable_dns_hostnames = var.enable_dns_hostnames
-  tags = var.tags
+  tags = merge(var.tags,{
+               Name = var.vpc_name
+               })
 }
 
 resource "aws_subnet" "public_subnet" {
@@ -12,5 +14,7 @@ resource "aws_subnet" "public_subnet" {
   cidr_block = var.subnet_cidr[count.index]
   availability_zone = data.aws_availability_zones.available.names[count.index]
   map_public_ip_on_launch = true
-  tags = var.tags
+  tags = merge(var.tags,{
+               Name = "${var.vpc_name}-public-{count}"
+               })
 }
