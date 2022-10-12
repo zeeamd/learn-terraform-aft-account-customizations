@@ -1,4 +1,4 @@
-module "tgw" {
+module "transit_gateway" {
   source = "./modules/transit_gateway"
   amazon_side_asn = var.amazon_side_asn
   default_route_table_association = var.default_route_table_association

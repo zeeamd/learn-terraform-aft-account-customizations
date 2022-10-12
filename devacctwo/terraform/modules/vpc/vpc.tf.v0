@@ -1,41 +1,31 @@
 resource "aws_vpc" "ct2_vpc" {
   cidr_block       = "12.2.0.0/27"
   instance_tenancy = "default"
-  tags             = merge(module.tags.map,{
-                           Name = "ct2_vpc"
-                           })
+  tags             = var.tags
 }
 
 resource "aws_subnet" "pub1" {
   vpc_id     = aws_vpc.ct2_vpc.id
   cidr_block = "12.2.0.0/28"
   availability_zone = "us-east-1a"
-  tags       = merge(module.tags.map,{
-                     Name = "pub1"
-                     })
+  tags             = var.tags
 }
 
 resource "aws_subnet" "pri1" {
   vpc_id     = aws_vpc.ct2_vpc.id
   cidr_block = "12.2.0.16/28"
   availability_zone = "us-east-1b"
-  tags       = merge(module.tags.map,{
-                     Name = "pri1"
-                     })
+  tags             = var.tags
 }
 
 resource "aws_route_table" "rt_pub1" {
   vpc_id = aws_vpc.ct2_vpc.id
-  tags   = merge(module.tags.map,{
-                 Name = "rt_pub1"
-                 })
+  tags             = var.tags
 }
 
 resource "aws_route_table" "rt_pri1" {
   vpc_id = aws_vpc.ct2_vpc.id
-  tags   = merge(module.tags.map,{
-                 Name = "rt_pri1"
-                 })
+  tags             = var.tags
 }
 
 resource "aws_route_table_association" "a1" {
