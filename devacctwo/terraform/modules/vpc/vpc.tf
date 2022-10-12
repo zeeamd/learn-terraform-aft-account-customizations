@@ -12,7 +12,5 @@ resource "aws_subnet" "public_subnet" {
   cidr_block = var.subnet_cidr
   availability_zone = "${data.aws_availability_zones.available.names[count.index]}"
   map_public_ip_on_launch = true
-  tags {
-    Name = "PublicSubnet"
-  }
+  tags = var.tags
 }
