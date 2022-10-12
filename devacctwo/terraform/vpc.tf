@@ -5,6 +5,6 @@ module "vpc" {
   enable_dns_support = var.enable_dns_support
   enable_dns_hostnames = var.enable_dns_hostnames
   tags = merge(module.tags.map,{
-               Name = var.name
+               Name = var.vpc_name
                })
 }
