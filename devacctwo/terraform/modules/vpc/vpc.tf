@@ -1,3 +1,13 @@
+data "aws_region" "current" {}
+
+data "aws_availability_zones" "available" {
+  state = "available"
+}
+
+locals {
+  az_count = length(data.aws_availability_zones.available.names)
+}
+
 resource "aws_vpc" "vpc" {
   cidr_block = var.vpc_cidr
   instance_tenancy = var.instance_tenancy
