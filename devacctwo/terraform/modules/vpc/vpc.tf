@@ -5,8 +5,7 @@ data "aws_availability_zones" "available" {
 }
 
 locals {
-  ##az_count = length(data.aws_availability_zones.available.names)
-  az_count = 1
+  az_count = length(data.aws_availability_zones.available.names) - 1
 }
 
 resource "aws_vpc" "vpc" {
