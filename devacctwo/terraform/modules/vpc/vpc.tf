@@ -5,7 +5,7 @@ data "aws_availability_zones" "available" {
 }
 
 locals {
-  az_count = length(data.aws_availability_zones.available.names) - 1
+  az_count = length(data.aws_availability_zones.available.names)
 }
 
 resource "aws_vpc" "vpc" {
@@ -22,7 +22,7 @@ resource "aws_subnet" "public_subnet" {
   count = length(var.cidr_subnet_public)
   vpc_id = aws_vpc.vpc.id
   cidr_block = var.cidr_subnet_public[count.index]
-  availability_zone = local.az_count >= count.index ? data.aws_availability_zones.available.names[count.index] : data.aws_availability_zones.available.names[0]
+  availability_zone = local.az_count > count.index ? data.aws_availability_zones.available.names[count.index] : data.aws_availability_zones.available.names[0]
   map_public_ip_on_launch = true
   tags = merge(var.tags,{
                Name = "${var.vpc_name}-public-${count.index}"
@@ -33,7 +33,7 @@ resource "aws_subnet" "public_subnet" {
 #  count = length(var.cidr_subnet_public)
 #  vpc_id = aws_vpc.vpc.id
 #  cidr_block = var.cidr_subnet_private[count.index]
-#  availability_zone = data.aws_availability_zones.available.names[count.index]
+#  availability_zone = local.az_count > count.index ? data.aws_availability_zones.available.names[count.index] : data.aws_availability_zones.available.names[0]
 #  map_public_ip_on_launch = true
 #  tags = merge(var.tags,{
 #               Name = "${var.vpc_name}-private-${count.index}"
