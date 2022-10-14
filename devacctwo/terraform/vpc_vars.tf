@@ -6,7 +6,7 @@ variable "vpc" {
   instance_tenancy = "default"
   enable_dns_support = true
   enable_dns_hostnames = true
-  cidr_subnet_public = ["12.1.0.0/28"]
+  cidr_subnet_public = ["12.1.0.0/28","12.1.0.16/28"]
   cidr_subnet_private = ["12.1.0.16/28"]
   }
  }
