@@ -1,5 +1,5 @@
 resource "aws_vpc" "vpc" {
-  cidr_block = var.cidr_block
+  cidr_block = var.vpc_cidr
   instance_tenancy = var.instance_tenancy
   enable_dns_support = var.enable_dns_support
   enable_dns_hostnames = var.enable_dns_hostnames
@@ -9,9 +9,9 @@ resource "aws_vpc" "vpc" {
 }
 
 resource "aws_subnet" "public_subnet" {
-  count = 2
+  count = length(var.cidr_subnet_public)
   vpc_id = aws_vpc.vpc.id
-  cidr_block = var.subnet_cidr[count.index]
+  cidr_block = var.cidr_subnet_public[count.index]
   availability_zone = data.aws_availability_zones.available.names[count.index]
   map_public_ip_on_launch = true
   tags = merge(var.tags,{
@@ -19,10 +19,17 @@ resource "aws_subnet" "public_subnet" {
                })
 }
 
-#data "aws_subnet_ids" "selected" {
+#resource "aws_subnet" "private_subnet" {
+#  count = length(var.cidr_subnet_public)
 #  vpc_id = aws_vpc.vpc.id
+#  cidr_block = var.cidr_subnet_private[count.index]
+#  availability_zone = data.aws_availability_zones.available.names[count.index]
+#  map_public_ip_on_launch = true
+#  tags = merge(var.tags,{
+#               Name = "${var.vpc_name}-private-${count.index}"
+#               })
 #}
-#
-#output "thissubnetids" {
-#  value = data.aws_subnet_ids.selected.ids
-#}
+
+output "thistimeAZCount" {
+  value = local.az_count
+}

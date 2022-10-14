@@ -4,6 +4,10 @@ data "aws_availability_zones" "available" {
   state = "available"
 }
 
+locals {
+  az_count = length(data.aws_availability_zones.available.names)
+}
+
 output "thisregion" {
   value = data.aws_region.current.name
 }
