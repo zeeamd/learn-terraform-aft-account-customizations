@@ -39,3 +39,19 @@ resource "aws_subnet" "public_subnet" {
 #               Name = "${var.vpc_name}-private-${count.index}"
 #               })
 #}
+
+resource "aws_route_table" "rt_public" {
+  count = length(var.cidr_subnet_public)
+  vpc_id = aws_vpc.vpc.id
+  tags = merge(var.tags,{
+               Name = "${var.vpc_name}-public-${count.index}"
+               })
+}
+
+#resource "aws_route_table" "rt_private" {
+#  count = length(var.cidr_subnet_private)
+#  vpc_id = aws_vpc.vpc.id
+#  tags = merge(var.tags,{
+#               Name = "${var.vpc_name}-private-${count.index}"
+#               })
+#}
