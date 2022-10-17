@@ -55,3 +55,9 @@ resource "aws_route_table" "rt_public" {
 #               Name = "${var.vpc_name}-private-${count.index}"
 #               })
 #}
+
+resource "aws_route_table_association" "puba" {
+  count = length(var.cidr_subnet_public)
+  subnet_id = aws_subnet.public_subnet.*.id[count.index]
+  route_table_id = aws_route_table.rt_public.*.id[count.index]
+}
