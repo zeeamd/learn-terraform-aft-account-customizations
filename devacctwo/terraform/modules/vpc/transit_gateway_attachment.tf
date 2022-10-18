@@ -5,7 +5,7 @@ resource "aws_ec2_transit_gateway_vpc_attachment" "tgw_attachment" {
   vpc_id             = aws_vpc.vpc.id
   transit_gateway_default_route_table_association = false
   transit_gateway_default_route_table_propagation = false
-  tags               = merge(module.tags.map,{
+  tags               = merge(var.tags,{
                              Name = "${var.vpc_name}_attachment"
                              })
 }
