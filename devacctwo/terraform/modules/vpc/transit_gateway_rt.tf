@@ -1,5 +1,4 @@
 resource "aws_ec2_transit_gateway_route_table" "vpc_attachment_rt" {
-  ##transit_gateway_id = "tgw-048cad44b48542dec"
   transit_gateway_id = var.tgw_id
 }
 
