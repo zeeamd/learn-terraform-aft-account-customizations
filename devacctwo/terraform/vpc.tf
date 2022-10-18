@@ -8,5 +8,6 @@ module "vpc" {
   enable_dns_hostnames = each.value["enable_dns_hostnames"]
   cidr_subnet_public = each.value["cidr_subnet_public"]
   cidr_subnet_private = each.value["cidr_subnet_private"]
+  tgw_id = module.transit_gateway.tgw_id
   tags = module.tags.map
 }

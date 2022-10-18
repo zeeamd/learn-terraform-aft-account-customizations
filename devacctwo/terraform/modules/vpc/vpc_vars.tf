@@ -6,3 +6,4 @@ variable "enable_dns_hostnames" { default = true }
 variable "cidr_subnet_public" { default = [] }
 variable "cidr_subnet_private" { default = [] }
 variable "tags" { default = {} }
+variable "tgw_id" { default = "" }

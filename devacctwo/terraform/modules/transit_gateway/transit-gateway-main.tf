@@ -7,3 +7,7 @@ resource "aws_ec2_transit_gateway" "tgw" {
   dns_support = var.dns_support
   tags = var.tags
 }
+
+output "tgw_id" {
+ value = aws_ec2_transit_gateway.tgw.id
+}
