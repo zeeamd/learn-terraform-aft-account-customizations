@@ -61,3 +61,9 @@ resource "aws_route_table_association" "puba" {
   subnet_id = aws_subnet.public_subnet.*.id[count.index]
   route_table_id = aws_route_table.rt_public.*.id[count.index]
 }
+
+#resource "aws_route_table_association" "pria" {
+#  count = length(var.cidr_subnet_private)
+#  subnet_id = aws_subnet.private_subnet.*.id[count.index]
+#  route_table_id = aws_route_table.rt_private.*.id[count.index]
+#}
