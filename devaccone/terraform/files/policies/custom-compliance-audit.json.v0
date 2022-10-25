@@ -51,13 +51,6 @@
       ],
       "Effect": "Deny",
       "Resource": "*"
-    },
-    {
-      "Action": [
-        "s3:PutBucketVersioning"
-      ],
-      "Effect": "Deny",
-      "Resource": "*"
     }
   ]
 }
